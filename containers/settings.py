@@ -30,8 +30,9 @@ import os
 ALLOWED_HOSTS = [
     'cont-production.up.railway.app',
     'localhost',
-    '127.0.0.1',
+    '127.0.0.1'
 ]
+
 
 
 
