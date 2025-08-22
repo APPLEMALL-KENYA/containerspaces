@@ -27,7 +27,12 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = ['cont-production.up.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'cont-production.up.railway.app',
+    'localhost',
+    '127.0.0.1',
+]
+
 
 
 
@@ -136,10 +141,11 @@ import dj_database_url
 
 # For Railway
 CSRF_TRUSTED_ORIGINS = [
-    'https://cont-production.up.railway.app',
-    'http://localhost',
-    'http://127.0.0.1',
+    'https://cont-production.up.railway.app',  # Railway domain
+    'http://localhost',                        # Local dev
+    'http://127.0.0.1',                        # Local dev
 ]
+
 
 # Optional for DATABASE_URL
 DATABASES = {
