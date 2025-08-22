@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-%j7*(tfwmn9*ev-+t^=m6ibw!-!ihiml!byg!rjft23817jap2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+ALLOWED_HOSTS = [
+    '127.0.0.1', 'localhost',
+    os.getenv('RAILWAY_STATIC_URL', '').replace('https://', '').replace('/', '')
+]
+
 
 
 # Application definition
@@ -48,7 +54,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 ROOT_URLCONF = 'containers.urls'
 
@@ -116,7 +124,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -128,7 +138,7 @@ import dj_database_url
 
 # For Railway
 CSRF_TRUSTED_ORIGINS = [
-    'cont-production.up.railway.app',
+    'https://cont-production.up.railway.app',
     'http://localhost',
     'http://127.0.0.1',
 ]
