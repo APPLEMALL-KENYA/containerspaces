@@ -27,10 +27,8 @@ DEBUG = True
 
 import os
 
-ALLOWED_HOSTS = [
-    '127.0.0.1', 'localhost',
-    os.getenv('RAILWAY_STATIC_URL', '').replace('https://', '').replace('/', '')
-]
+ALLOWED_HOSTS = ['cont-production.up.railway.app', '127.0.0.1', 'localhost']
+
 
 
 
