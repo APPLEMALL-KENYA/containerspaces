@@ -128,7 +128,7 @@ import dj_database_url
 
 # For Railway
 CSRF_TRUSTED_ORIGINS = [
-    'https://your-app-name.up.railway.app',
+    'cont-production.up.railway.app',
     'http://localhost',
     'http://127.0.0.1',
 ]
@@ -140,3 +140,6 @@ DATABASES = {
         conn_max_age=600,
     )
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
